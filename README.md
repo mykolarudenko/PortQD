@@ -1,6 +1,6 @@
 # PortQD: Portable Quiz Description
 
-![Alt Text](mascot.webp)
+![Alt Text](mascot-mid.webp)
 
 
 ## Overview
