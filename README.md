@@ -1,5 +1,8 @@
 # PortQD: Portable Quiz Description
 
+![Alt Text](mascot.webp)
+
+
 ## Overview
 PortQD, short for Portable Quiz Description, is an open format specification designed for the creation, exchange, and utilization of quiz-like team game materials. This specification details both the container and the content, providing a comprehensive guide for authors and developers.
 
