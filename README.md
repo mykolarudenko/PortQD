@@ -1,4 +1,3 @@
-![Uploading image.png…]()
 # PortQD: Portable Quiz Description
 
 ## Overview
