@@ -32,17 +32,21 @@
         "Title": { "type": "string", "maxLength": 80 },
         "ShortDescription": { "type": "string", "maxLength": 256 },
         "LongDescription": { "type": "string", "maxLength": 2000 },
+        "QuestionType": {"type": "string", "maxLength": 10 },
+        "Location": { "type": "string", "maxLength": 256 },
+        "TournamentType": { "type": "string", "maxLength": 256 },
         "ExtraInfo": { "type": "string", "maxLength": 1024 },
         "NumberOfTours": { "type": "integer", "minimum": 1, "maximum": 99 },
         "TotalNumberOfQuestions": { "type": "integer", "minimum": 1, "maximum": 9999 },
+        "Language": {"type": "string", "maxLength": 10 },
         "LastUpdated": { "type": "string", "format": "date" },
         "Frontpic": { "type": "string", "maxLength": 100 },
-        "EstimatedComplexity": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "EstimatedComplexity": { "type": "integer", "minimum": 1, "maximum": 100 },
         "Copyright": { "type": "string", "maxLength": 200 },
         "Year": { "type": "integer" },
         "License": { "type": "string" }
       },
-      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "LastUpdated", "Copyright", "Year", "License"]
+      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "Language", "QuestionType", "LastUpdated", "Copyright", "Year", "License"]
     },
     "Authors": {
       "type": "array",
@@ -51,6 +55,8 @@
         "properties": {
           "Name": { "type": "string", "maxLength": 100 },
           "RatingChgkInfoID": { "type": "string", "maxLength": 50 },
+          "QotQuestionsID": { "type": "string", "maxLength": 50 },
+          "DbChgkInfoID": { "type": "string", "maxLength": 50 },
           "Role": { "type": "string", "maxLength": 100 }
         },
         "required": ["Name", "Role"]
@@ -65,12 +71,14 @@
             "type": "object",
             "properties": {
               "ID": { "type": "string", "format": "uuid" },
-              "NumberOfQuestions": { "type": "integer", "minimum": 1, "maximum": 99 },
+              "NumberOfQuestions": { "type": "integer", "minimum": 1, "maximum": 1024 },
               "TourEditor": {
                 "type": "object",
                 "properties": {
                   "Name": { "type": "string", "maxLength": 100 },
                   "RatingChgkInfoID": { "type": "string", "maxLength": 50 },
+                  "QotQuestionsID": { "type": "string", "maxLength": 50 },
+                  "DbChgkInfoID": { "type": "string", "maxLength": 50 },
                   "ExtraInfo": { "type": "string", "maxLength": 1024 }
                 },
                 "required": ["Name"]
