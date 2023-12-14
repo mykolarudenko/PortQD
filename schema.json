@@ -125,7 +125,7 @@
           "maxLength": 200,
           "description": "Copyright holder's name."
         },
-        "Year": { 
+        "CopyrightYear": { 
           "type": "integer",
           "description": "Year of copyright."
         },
