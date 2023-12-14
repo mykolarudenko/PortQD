@@ -1,7 +1,6 @@
-function validateIndex(yamlText) {
-
+function loadSchema() {
   // URL of the schema.json file
-const schemaUrl = 'https://mykolarudenko.github.io/PortQD/schema.json';
+  const schemaUrl = 'https://mykolarudenko.github.io/PortQD/schema.json';
 
   // Fetch the schema and store it in a variable
   fetch(schemaUrl)
@@ -18,6 +17,11 @@ const schemaUrl = 'https://mykolarudenko.github.io/PortQD/schema.json';
     .catch(error => {
       console.error('There has been a problem with your fetch operation:', error);
     });
+
+  }
+
+function validateIndex(yamlText) {
+
 
   // const schema = {
   //   type: 'object',
@@ -124,6 +128,8 @@ const schemaUrl = 'https://mykolarudenko.github.io/PortQD/schema.json';
   //const ajv = new Ajv();
   var ajv = new Ajv();
   //addFormats(ajv)
+
+  schema = loadSchema();
 
   // Compile the schema
   const validate = ajv.compile(schema);
