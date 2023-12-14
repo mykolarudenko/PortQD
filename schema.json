@@ -117,7 +117,7 @@
         "EstimatedComplexity": { 
           "type": "integer", 
           "minimum": 1, 
-          "maximum": 10,
+          "maximum": 100,
           "description": "Estimated complexity or difficulty level of the quiz."
         },
         "Copyright": { 
@@ -132,9 +132,14 @@
         "License": { 
           "type": "string",
           "description": "License under which the quiz is distributed."
-        }
+        },
+        "TournamentGenre": { "type": "string", "enum": ["CHGK Sport", "60 Seconds", "Quiz"]}, 
+        "TournamentType": { "type": "string", "type": "string",
+        "enum": ["InPersonTournament", "StrictlySynchronousTournament", "CorrespondenceTournament", "StrictlySynchronousOnlineTournament", "CorrespondenceOnlineTournament"],
+        "description": "Defines the type of tournament. 'InPersonTournament' is a physical venue where teams play simultaneously. 'StrictlySynchronousTournament' has multiple physical venues with synchronous play. 'CorrespondenceTournament' involves teams participating at different times. 'StrictlySynchronousOnlineTournament' is similar to strictly synchronous but conducted online. 'CorrespondenceOnlineTournament' is an online tournament with teams participating at different times." },
+        "Language-ISO639-1": { "type": "string", "minLength": 2, "maxLength": 2 }
       },
-      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "LastUpdated", "Copyright", "Year", "License"],
+      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "LastUpdated", "Copyright", "Year", "License","TournamentGenre","TournamentType","Language-ISO639-1"],
       "description": "Provides detailed information about the quiz."
     },
     "Authors": {
