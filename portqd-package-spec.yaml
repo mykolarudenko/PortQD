@@ -44,7 +44,7 @@ About:
   TotalNumberOfQuestions: <Integer 1-9999>
   # Required, date of last update
   LastUpdated: <Date, format YYYY-MM-DD>
-  # Optional, front picture filename
+  # Optional, front picture filename. The picture is taken from the attachments folder of the container
   Frontpic: <String, 'frontpic.jpg' or '', max 100 characters>
   # Difficulty level, 1 - easy, 10 - hard
   EstimatedComplexity: <Integer 1-10>
