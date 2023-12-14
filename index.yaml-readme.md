@@ -71,7 +71,6 @@ This README outlines the structure and usage of the `index.yaml` file within the
 - Place the `index.yaml` file at the root of the PortQD container ZIP file.
 - Validate the `index.yaml` file for correct YAML syntax and adherence to the specified structure.
 
-For any additional questions or support regarding the PortQD `index.yaml` format, please contact [Support Contact Information].
 
 ---
 
