@@ -23,7 +23,7 @@ The PortQD format is intended to standardize the way quiz materials are prepared
 
 To start using the PortQD format, follow these steps:
 
-1. **Read the Specification**: Familiarize yourself with the format's structure and capabilities.
+1. [**Read the Specification**](index.yaml-readme.md): Familiarize yourself with the format's structure and capabilities.
 2. **Create or Convert Content**: Begin creating new quiz content or convert existing materials to the PortQD format.
 3. **Use Supporting Tools**: Leverage software tools designed for PortQD for editing, converting, or playing quiz content.
 

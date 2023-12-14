@@ -1,0 +1,89 @@
+# PortQD Index
+# This section provides details about the format and version of the PortQD index file
+PortQD_Index:
+  # Version of the PortQD index file specification
+  SpecificationVersion: "1.0"
+  # Description of the file format
+  Format: "Portable Quiz Description Index File"
+
+# Section Owner
+# Lists the owners or main contacts for the quiz
+Owner:
+  # Automatically generated version 4 UUID, unique identifier for the owner
+  - ID: <UUID_v4>
+    # Full name of the owner
+    Name: <String, max 100 characters>
+    # Contact email address
+    ContactEmail: <String, max 100 characters>
+    # Telegram ID for contact
+    TelegramID: <String, max 50 characters>
+    # Webpage URL associated with the owner
+    WebPage: <URL, max 200 characters>
+    # Facebook page URL
+    FacebookPage: <URL, max 200 characters>
+    # Required, ID from rating.chgk.info
+    RatingChgkInfoID: <String, max 50 characters>
+    # Additional information about the owner
+    ExtraInfo: |
+      <Multiline String, max 1024 characters>
+
+# Section About
+# Provides detailed information about the quiz
+About:
+  # Required, title of the quiz
+  Title: <String, max 80 characters>
+  # Required, brief description of the quiz
+  ShortDescription: <String, max 256 characters>
+  # Optional, detailed description
+  LongDescription: <String, max 2000 characters>
+  # Optional, additional information about the quiz
+  ExtraInfo: <String, max 1024 characters>
+  # Required, total number of tours
+  NumberOfTours: <Integer 1-99>
+  # Required, total number of questions
+  TotalNumberOfQuestions: <Integer 1-9999>
+  # Required, date of last update
+  LastUpdated: <Date, format YYYY-MM-DD>
+  # Optional, front picture filename
+  Frontpic: <String, 'frontpic.jpg' or '', max 100 characters>
+  # Difficulty level, 1 - easy, 10 - hard
+  EstimatedComplexity: <Integer 1-10>
+  # Required, copyright holder's name
+  Copyright: <String, max 200 characters>
+  # Required, year of copyright
+  Year: <Integer, format YYYY>
+  # Default, required license
+  License: "CC BY-SA 4.0"
+
+# Section Authors
+# Lists the authors and their roles in quiz creation
+Authors:
+  # Name of the author
+  - Name: <String, max 100 characters>
+    # Optional, ID from rating.chgk.info
+    RatingChgkInfoID: <String, max 50 characters>
+    # Required, role of the author (e.g., Co-Editor, Contributor)
+    Role: <String, max 100 characters>
+
+# Section Content
+# Details the content of the quiz, including tours
+Content:
+  Tours:
+    # Automatically generated version 4 UUID, unique identifier for the tour
+    - ID: <UUID_v4>
+      # Required, number of questions in the tour
+      NumberOfQuestions: <Integer 1-99>
+      TourEditor:
+        # Name of the tour editor
+        Name: <String, max 100 characters>
+        # Optional, ID from rating.chgk.info
+        RatingChgkInfoID: <String, max 50 characters>
+        # Optional, additional information about the editor
+        ExtraInfo: <String, max 1024 characters>
+      TourTesters: # Optional, list of people who tested the tour
+        # Name of the tester
+        - Name: <String, max 100 characters>
+          # Optional, ID from rating.chgk.info
+          RatingChgkInfoID: <String, max 50 characters>
+          # Optional, additional information about the tester
+          ExtraInfo: <String, max 1024 characters>

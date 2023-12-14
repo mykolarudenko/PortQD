@@ -1,0 +1,56 @@
+# PortQD Index
+PortQD_Index:
+  SpecificationVersion: "1.0"
+  Format: "Portable Quiz Description Index File"
+
+# Section Owner
+Owner:
+  - ID: 123e4567-e89b-12d3-a456-426655440000
+    Name: "Alex Johnson"
+    ContactEmail: "alex.johnson@example.com"
+    TelegramID: "alex_johnson"
+    WebPage: "https://www.alexjohnson.com"
+    FacebookPage: "https://www.facebook.com/alexjohnson"
+    RatingChgkInfoID: "AJ2023"
+    ExtraInfo: |
+      Alex has been organizing quizzes since 2010, focusing on a wide range of topics. 
+      Known for creating engaging and challenging questions.
+
+# Section About
+About:
+  Title: "World History Quiz Marathon"
+  ShortDescription: "A comprehensive quiz covering significant events in world history."
+  LongDescription: "This marathon quiz spans multiple eras, offering a deep dive into historical events, figures, and movements. Perfect for history buffs."
+  ExtraInfo: "The quiz includes multimedia questions, covering audio, visual, and textual formats."
+  NumberOfTours: 5
+  TotalNumberOfQuestions: 250
+  LastUpdated: 2023-06-15
+  Frontpic: "frontpic.jpg"
+  EstimatedComplexity: 7
+  Copyright: "History Quizzes Inc."
+  Year: 2023
+  License: "CC BY-SA 4.0"
+
+# Section Authors
+Authors:
+  - Name: "Maria Lopez"
+    RatingChgkInfoID: "ML2023"
+    Role: "Lead Author"
+  - Name: "David Smith"
+    Role: "Contributor"
+
+# Section Content
+Content:
+  Tours:
+    - ID: abcdef12-3456-7890-abcd-ef1234567890
+      NumberOfQuestions: 50
+      TourEditor:
+        Name: "Maria Lopez"
+        RatingChgkInfoID: "ML2023"
+        ExtraInfo: "Maria specializes in ancient history and mythology."
+      TourTesters:
+        - Name: "John Doe"
+          RatingChgkInfoID: "JD2023"
+          ExtraInfo: "John is an expert in European history."
+        - Name: "Emily Clark"
+          ExtraInfo: "Emily has a background in history education."
