@@ -4,66 +4,164 @@
     "PortQD_Index": {
       "type": "object",
       "properties": {
-        "SpecificationVersion": { "type": "string" },
-        "Format": { "type": "string" }
+        "SpecificationVersion": { 
+          "type": "string",
+          "description": "The version of the PortQD index file specification (e.g., '1.0')."
+        },
+        "Format": { 
+          "type": "string",
+          "description": "Description of the file format (e.g., 'Portable Quiz Description Index File')."
+        }
       },
-      "required": ["SpecificationVersion", "Format"]
+      "required": ["SpecificationVersion", "Format"],
+      "description": "Contains details about the format and version of the PortQD index file."
     },
     "Owner": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "ID": { "type": "string", "format": "uuid" },
-          "Name": { "type": "string", "maxLength": 100 },
-          "ContactEmail": { "type": "string", "maxLength": 100 },
-          "TelegramID": { "type": "string", "maxLength": 50 },
-          "WebPage": { "type": "string", "maxLength": 200, "format": "url" },
-          "FacebookPage": { "type": "string", "maxLength": 200, "format": "url" },
-          "RatingChgkInfoID": { "type": "string", "maxLength": 50 },
-          "ExtraInfo": { "type": "string", "maxLength": 1024 }
+          "ID": { 
+            "type": "string", 
+            "format": "uuid",
+            "description": "A unique identifier for the owner (UUID version 4)."
+          },
+          "Name": { 
+            "type": "string", 
+            "maxLength": 100,
+            "description": "Full name of the owner."
+          },
+          "ContactEmail": { 
+            "type": "string", 
+            "maxLength": 100,
+            "description": "Contact email address."
+          },
+          "TelegramID": { 
+            "type": "string", 
+            "maxLength": 50,
+            "description": "Telegram ID for contact."
+          },
+          "WebPage": { 
+            "type": "string", 
+            "maxLength": 200, 
+            "format": "url",
+            "description": "Webpage URL associated with the owner."
+          },
+          "FacebookPage": { 
+            "type": "string", 
+            "maxLength": 200, 
+            "format": "url",
+            "description": "Facebook page URL."
+          },
+          "RatingChgkInfoID": { 
+            "type": "string", 
+            "maxLength": 50,
+            "description": "Required ID from rating.chgk.info."
+          },
+          "ExtraInfo": { 
+            "type": "string", 
+            "maxLength": 1024,
+            "description": "Additional information about the owner."
+          }
         },
-        "required": ["ID", "Name", "ContactEmail", "RatingChgkInfoID"]
-      }
+        "required": ["ID", "Name", "ContactEmail", "RatingChgkInfoID"],
+        "description": "A list of owners or main contacts for the quiz. Multiple entries are allowed."
+      },
+      "description": "Describes the owner(s) of the quiz."
     },
     "About": {
       "type": "object",
       "properties": {
-        "Title": { "type": "string", "maxLength": 80 },
-        "ShortDescription": { "type": "string", "maxLength": 256 },
-        "LongDescription": { "type": "string", "maxLength": 2000 },
-        "QuestionType": {"type": "string", "maxLength": 10 },
-        "Location": { "type": "string", "maxLength": 256 },
-        "TournamentGenre": { "type": "string", "enum": ["CHGK Sport", "60 Seconds", "Quiz"], 
-        "TournamentType": { "type": "string", "type": "string",
-        "enum": ["InPersonTournament", "StrictlySynchronousTournament", "CorrespondenceTournament", "StrictlySynchronousOnlineTournament", "CorrespondenceOnlineTournament"],
-        "description": "Defines the type of tournament. 'InPersonTournament' is a physical venue where teams play simultaneously. 'StrictlySynchronousTournament' has multiple physical venues with synchronous play. 'CorrespondenceTournament' involves teams participating at different times. 'StrictlySynchronousOnlineTournament' is similar to strictly synchronous but conducted online. 'CorrespondenceOnlineTournament' is an online tournament with teams participating at different times." },
-        "ExtraInfo": { "type": "string", "maxLength": 1024 },
-        "NumberOfTours": { "type": "integer", "minimum": 1, "maximum": 99 },
-        "TotalNumberOfQuestions": { "type": "integer", "minimum": 1, "maximum": 9999 },
-        "LastUpdated": { "type": "string", "format": "date" },
-        "Frontpic": { "type": "string", "maxLength": 100 },
-        "EstimatedComplexity": { "type": "integer", "minimum": 1, "maximum": 100 },
-        "Copyright": { "type": "string", "maxLength": 200 },
-        "Year": { "type": "integer" },
-        "License": { "type": "string" },
-        "Language-ISO639-1": { "type": "string", "minLength": 2, "maxLength": 2 }
+        "Title": { 
+          "type": "string", 
+          "maxLength": 80,
+          "description": "Title of the quiz."
+        },
+        "ShortDescription": { 
+          "type": "string", 
+          "maxLength": 256,
+          "description": "Brief description of the quiz."
+        },
+        "LongDescription": { 
+          "type": "string", 
+          "maxLength": 2000,
+          "description": "Detailed description of the quiz."
+        },
+        "ExtraInfo": { 
+          "type": "string", 
+          "maxLength": 1024,
+          "description": "Additional information about the quiz."
+        },
+        "NumberOfTours": { 
+          "type": "integer", 
+          "minimum": 1, 
+          "maximum": 99,
+          "description": "Total number of tours in the quiz."
+        },
+        "TotalNumberOfQuestions": { 
+          "type": "integer", 
+          "minimum": 1, 
+          "maximum": 9999,
+          "description": "Total number of questions in the quiz."
+        },
+        "LastUpdated": { 
+          "type": "string", 
+          "format": "date",
+          "description": "Date of the last update of the quiz."
+        },
+        "Frontpic": { 
+          "type": "string", 
+          "maxLength": 100,
+          "description": "Front picture filename for the quiz."
+        },
+        "EstimatedComplexity": { 
+          "type": "integer", 
+          "minimum": 1, 
+          "maximum": 10,
+          "description": "Estimated complexity or difficulty level of the quiz."
+        },
+        "Copyright": { 
+          "type": "string", 
+          "maxLength": 200,
+          "description": "Copyright holder's name."
+        },
+        "Year": { 
+          "type": "integer",
+          "description": "Year of copyright."
+        },
+        "License": { 
+          "type": "string",
+          "description": "License under which the quiz is distributed."
+        }
       },
-      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "QuestionType", "LastUpdated", "Copyright", "Year", "License", "Language_ISO639_1"]
+      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "LastUpdated", "Copyright", "Year", "License"],
+      "description": "Provides detailed information about the quiz."
     },
     "Authors": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "Name": { "type": "string", "maxLength": 100 },
-          "RatingChgkInfoID": { "type": "string", "maxLength": 50 },
-          "QotQuestionsID": { "type": "string", "maxLength": 50 },
-          "DbChgkInfoID": { "type": "string", "maxLength": 50 },
-          "Role": { "type": "string", "maxLength": 100 }
+          "Name": { 
+            "type": "string", 
+            "maxLength": 100,
+            "description": "Name of the author."
+          },
+          "RatingChgkInfoID": { 
+            "type": "string", 
+            "maxLength": 50,
+            "description": "ID from rating.chgk.info (optional)."
+          },
+          "Role": { 
+            "type": "string", 
+            "maxLength": 100,
+            "description": "Role of the author in quiz creation."
+          }
         },
-        "required": ["Name", "Role"]
-      }
+        "required": ["Name", "Role"],
+        "description": "Lists the authors and their roles in quiz creation."
+      },
+      "description": "Contains information about the authors of the quiz."
     },
     "Content": {
       "type": "object",
@@ -73,38 +171,75 @@
           "items": {
             "type": "object",
             "properties": {
-              "ID": { "type": "string", "format": "uuid" },
-              "NumberOfQuestions": { "type": "integer", "minimum": 1, "maximum": 1024 },
+              "ID": { 
+                "type": "string", 
+                "format": "uuid",
+                "description": "Unique identifier for the tour (UUID version 4)."
+              },
+              "NumberOfQuestions": { 
+                "type": "integer", 
+                "minimum": 1, 
+                "maximum": 99,
+                "description": "Number of questions in the tour."
+              },
               "TourEditor": {
                 "type": "object",
                 "properties": {
-                  "Name": { "type": "string", "maxLength": 100 },
-                  "RatingChgkInfoID": { "type": "string", "maxLength": 50 },
-                  "QotQuestionsID": { "type": "string", "maxLength": 50 },
-                  "DbChgkInfoID": { "type": "string", "maxLength": 50 },
-                  "ExtraInfo": { "type": "string", "maxLength": 1024 }
+                  "Name": { 
+                    "type": "string", 
+                    "maxLength": 100,
+                    "description": "Name of the tour editor."
+                  },
+                  "RatingChgkInfoID": { 
+                    "type": "string", 
+                    "maxLength": 50,
+                    "description": "ID from rating.chgk.info (optional)."
+                  },
+                  "ExtraInfo": { 
+                    "type": "string", 
+                    "maxLength": 1024,
+                    "description": "Additional information about the editor."
+                  }
                 },
-                "required": ["Name"]
+                "required": ["Name"],
+                "description": "Details about the tour editor."
               },
               "TourTesters": {
                 "type": "array",
                 "items": {
                   "type": "object",
                   "properties": {
-                    "Name": { "type": "string", "maxLength": 100 },
-                    "RatingChgkInfoID": { "type": "string", "maxLength": 50 },
-                    "ExtraInfo": { "type": "string", "maxLength": 1024 }
+                    "Name": { 
+                      "type": "string", 
+                      "maxLength": 100,
+                      "description": "Name of the tester."
+                    },
+                    "RatingChgkInfoID": { 
+                      "type": "string", 
+                      "maxLength": 50,
+                      "description": "ID from rating.chgk.info (optional)."
+                    },
+                    "ExtraInfo": { 
+                      "type": "string", 
+                      "maxLength": 1024,
+                      "description": "Additional information about the tester."
+                    }
                   },
-                  "required": ["Name"]
-                }
+                  "required": ["Name"],
+                  "description": "List of people who tested the tour."
+                },
+                "description": "Contains details of the people who tested the tour."
               }
             },
-            "required": ["ID", "NumberOfQuestions", "TourEditor"]
+            "required": ["ID", "NumberOfQuestions", "TourEditor"],
+            "description": "Details the content of the quiz, including tours."
           }
         }
       },
-      "required": ["Tours"]
+      "required": ["Tours"],
+      "description": "Describes the content of the quiz, detailing its structure and tours."
     }
   },
-  "required": ["PortQD_Index", "Owner", "About", "Authors", "Content"]
+  "required": ["PortQD_Index", "Owner", "About", "Authors", "Content"],
+  "description": "Schema for the Portable Quiz Description (PortQD) format, defining the structure and content of quizzes."
 }
