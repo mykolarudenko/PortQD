@@ -34,19 +34,19 @@
         "LongDescription": { "type": "string", "maxLength": 2000 },
         "QuestionType": {"type": "string", "maxLength": 10 },
         "Location": { "type": "string", "maxLength": 256 },
-        "TournamentType": { "type": "string", "maxLength": 256 },
+        "TournamentType": { "type": "string", "enum": ["CHGK Sport", "60 Seconds", "Quiz"], "maxLength": 256 },
         "ExtraInfo": { "type": "string", "maxLength": 1024 },
         "NumberOfTours": { "type": "integer", "minimum": 1, "maximum": 99 },
         "TotalNumberOfQuestions": { "type": "integer", "minimum": 1, "maximum": 9999 },
-        "Language": {"type": "string", "maxLength": 10 },
         "LastUpdated": { "type": "string", "format": "date" },
         "Frontpic": { "type": "string", "maxLength": 100 },
         "EstimatedComplexity": { "type": "integer", "minimum": 1, "maximum": 100 },
         "Copyright": { "type": "string", "maxLength": 200 },
         "Year": { "type": "integer" },
-        "License": { "type": "string" }
+        "License": { "type": "string" },
+        "Language-ISO639-1": { "type": "string", "minLength": 2, "maxLength": 2 }
       },
-      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "Language", "QuestionType", "LastUpdated", "Copyright", "Year", "License"]
+      "required": ["Title", "ShortDescription", "NumberOfTours", "TotalNumberOfQuestions", "QuestionType", "LastUpdated", "Copyright", "Year", "License", "Language_ISO639_1"]
     },
     "Authors": {
       "type": "array",
