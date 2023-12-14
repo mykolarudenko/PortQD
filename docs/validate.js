@@ -1,24 +1,16 @@
-function loadSchema() {
-  // URL of the schema.json file
-  const schemaUrl = 'https://mykolarudenko.github.io/PortQD/schema.json';
-
-  // Fetch the schema and store it in a variable
-  fetch(schemaUrl)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(schema => {
-      // Use the schema here
-      console.log(schema);
-    })
-    .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
-    });
-
+async function loadJson(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data; // This will be a JavaScript object
+  } catch (error) {
+    console.error('Error fetching JSON:', error);
+    throw error; // Optionally re-throw to allow caller to handle the error
   }
+}
 
 function validateIndex(yamlText) {
 
@@ -125,29 +117,40 @@ function validateIndex(yamlText) {
 
 
   // Create a new Ajv instance
-  //const ajv = new Ajv();
   var ajv = new Ajv();
-  //addFormats(ajv)
 
-  schema = loadSchema();
 
-  // Compile the schema
-  const validate = ajv.compile(schema);
 
-  // Parse the YAML file
-  const data = jsyaml.load(yamlText);
+  const jsonUrl = 'https://mykolarudenko.github.io/PortQD/schema.json';
+  loadJson(jsonUrl)
+    .then(schema => {
+      console.log('Loaded JSON:', schema);
+      // You can work with the schema object here
 
-  // Validate the data against the schema
-  const valid = validate(data);
+      // Compile the schema
+      const validate = ajv.compile(schema);
 
-  if (!valid) {
-    console.log('YAML file has errors:');
-    console.log(validate.errors);
-    return(validate.errors);
-  } else {
-    console.log('YAML file is valid');
-    return('Success! Your PortQD index file is valid! Or at least it passed validation against our schema :)'); 
-  }
+      // Parse the YAML file
+      const data = jsyaml.load(yamlText);
+
+      // Validate the data against the schema
+      const valid = validate(data);
+
+      if (!valid) {
+        console.log('YAML file has errors:');
+        console.log(validate.errors);
+        return(validate.errors);
+      } else {
+        console.log('YAML file is valid');
+        return('Success! Your PortQD index file is valid! Or at least it passed validation against our schema :)'); 
+      }
+
+    })
+    .catch(error => {
+      console.error('Error loading JSON:', error);
+    });
+
+  
 
   
 }
