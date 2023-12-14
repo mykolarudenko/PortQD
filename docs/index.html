@@ -1,1 +1,141 @@
-Hello!
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lab Test</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.0/darkly/bootstrap.min.css" rel="stylesheet" type="text/css"
+  />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+   crossorigin="anonymous">
+
+  </script>
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js">
+
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script type="text/javascript" charset="utf8" src="validate.js">
+
+  </script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" integrity="sha512-CSBhVREyzHAjAFfBlIBakjoRUKp5h7VSweP0InR/pAJyptH7peuhCsqAI/snV+TwZmXZqoUklpXp6R6wMnYf5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.12.6/ajv.bundle.min.js" integrity="sha512-Xl0g/DHU98OkfXTsDfAAuTswzkniYQWPwLyGXzcpgDxCeH52eePfaHj/ictLAv2GvlPX2qZ6YV+3oDsw17L9qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</head>
+
+<body style="background-image: url(bg.webp); background-size: cover">
+
+
+  <div style="padding-left:20%;padding-right:20%;padding-top:5%">
+    <h1>Portable Quiz Description Index File Validator</h1>
+    <div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">YAML Code:</label>
+        <textarea class="form-control" id="yamlCode" rows="10"># PortQD Index
+        PortQD_Index:
+          SpecificationVersion: "1.0"
+          Format: "Portable Quiz Description Index File"
+        
+        # Section Owner
+        Owner:
+          - ID: 123e4567-e89b-12d3-a456-426655440000
+            Name: "Alex Johnson"
+            ContactEmail: "alex.johnson@example.com"
+            TelegramID: "alex_johnson"
+            WebPage: "https://www.alexjohnson.com"
+            FacebookPage: "https://www.facebook.com/alexjohnson"
+            RatingChgkInfoID: "AJ2023"
+            ExtraInfo: |
+              Alex has been organizing quizzes since 2010, focusing on a wide range of topics. 
+              Known for creating engaging and challenging questions.
+        
+        # Section About
+        About:
+          Title: "World History Quiz Marathon"
+          ShortDescription: "A comprehensive quiz covering significant events in world history."
+          LongDescription: "This marathon quiz spans multiple eras, offering a deep dive into historical events, figures, and movements. Perfect for history buffs."
+          ExtraInfo: "The quiz includes multimedia questions, covering audio, visual, and textual formats."
+          NumberOfTours: 5
+          TotalNumberOfQuestions: 250
+          LastUpdated: "2023-06-15"
+          Frontpic: "frontpic.jpg"
+          EstimatedComplexity: 7
+          Copyright: "History Quizzes Inc."
+          Year: 2023
+          License: "CC BY-SA 4.0"
+        
+        # Section Authors
+        Authors:
+          - Name: "Maria Lopez"
+            RatingChgkInfoID: "ML2023"
+            Role: "Lead Author"
+          - Name: "David Smith"
+            Role: "Contributor"
+        
+        # Section Content
+        Content:
+          Tours:
+            - ID: abcdef12-3456-7890-abcd-ef1234567890
+              NumberOfQuestions: 50
+              TourEditor:
+                Name: "Maria Lopez"
+                RatingChgkInfoID: "ML2023"
+                ExtraInfo: "Maria specializes in ancient history and mythology."
+              TourTesters:
+                - Name: "John Doe"
+                  RatingChgkInfoID: "JD2023"
+                  ExtraInfo: "John is an expert in European history."
+                - Name: "Emily Clark"
+                  ExtraInfo: "Emily has a background in history education."
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="Validation Results:">YAML Code:</label>
+        <textarea class="form-control" id="output" rows="5" readonly>
+        </textarea>
+      </div>
+
+    </div>
+
+    </div>
+    
+    <div class="text-center">
+      <button id="runValidator" class="btn btn-primary">Run Validator</button>
+    </div>
+
+  </div>
+
+  <div style="padding-left:20%;padding-right:20%;padding-top:10%" >
+    <h2 style="text-align: center;">Thanks for using! Come again!</h2>
+  </div>
+
+
+  <script>
+
+    document.getElementById("runValidator").addEventListener("click", function() {
+      var yamlContent = document.getElementById("yamlCode").value;
+      var validationResult = validateIndex(yamlContent);
+      document.getElementById("output").value = JSON.stringify(validationResult);
+    });
+
+  </script>
+</body>
+
+</html>
+		
+      
