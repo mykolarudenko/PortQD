@@ -1,7 +1,7 @@
 function validateIndex(yamlText) {
 
   // URL of the schema.json file
-const schemaUrl = '../schema.json';
+const schemaUrl = 'https://mykolarudenko.github.io/PortQD/schema.json';
 
   // Fetch the schema and store it in a variable
   fetch(schemaUrl)
