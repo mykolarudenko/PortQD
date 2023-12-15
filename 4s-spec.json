@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "description": "Schema for the 4s quiz game format",
+  "properties": {
+    "tournament": {
+      "type": "object",
+      "description": "Contains details of the tournament",
+      "properties": {
+        "name": {"type": "string", "description": "Name of the tournament"},
+        "date": {"type": "string", "format": "date", "description": "Date of the tournament"},
+        "editor": {"type": "string", "description": "Name of the person who edited the tournament"}
+      },
+      "required": ["name", "date"]
+    },
+    "rounds": {
+      "type": "array",
+      "description": "Array of rounds in the tournament",
+      "items": {
+        "type": "object",
+        "description": "Details of a single round",
+        "properties": {
+          "roundNumber": {"type": "integer", "description": "Number of the round"},
+          "questions": {
+            "type": "array",
+            "description": "Array of questions in the round",
+            "items": {
+              "type": "object",
+              "description": "Details of a single question",
+              "properties": {
+                "questionText": {"type": "string", "description": "Text of the question"},
+                "answer": {"type": "string", "description": "Answer to the question"},
+                "comments": {"type": "string", "description": "Additional comments about the question"},
+                "sources": {"type": "string", "description": "Sources of information for the question"},
+                "authors": {"type": "string", "description": "Authors of the question"}
+              },
+              "required": ["questionText", "answer"]
+            }
+          }
+        },
+        "required": ["roundNumber", "questions"]
+      }
+    }
+  },
+  "required": ["tournament", "rounds"]
+}
