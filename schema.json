@@ -239,6 +239,16 @@
           "maxLength": 50,
           "description": "ID from rating.chgk.info (optional)."
         },
+        "QotQuestionsID": { 
+          "type": "string", 
+          "maxLength": 50, 
+          "description": ""
+        },
+        "DbChgkInfoID": { 
+          "type": "string", 
+          "maxLength": 50 
+          "description": ""
+        },
         "ExtraInfo": {
           "type": "string",
           "maxLength": 1024,
