@@ -172,31 +172,14 @@
       ],
       "description": "Provides detailed information about the quiz."
     },
-    "Authors": {
+    "TournamentContributors": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "string",
-            "maxLength": 100,
-            "description": "Name of the author."
-          },
-          "RatingChgkInfoID": {
-            "type": "string",
-            "maxLength": 50,
-            "description": "ID from rating.chgk.info (optional)."
-          },
-          "Role": {
-            "type": "string",
-            "maxLength": 100,
-            "description": "Role of the author in quiz creation."
-          }
+        "$ref": "#/definitions/Contributor"
         },
-        "required": ["Name", "Role"],
-        "description": "Lists the authors and their roles in quiz creation."
+        "description": "Lists the contributors and their roles in quiz creation."
       },
-      "description": "Contains information about the authors of the quiz."
+      "description": "Contains information about people who contributed to the whole tournament."
     },
     "Content": {
       "type": "object",
@@ -220,33 +203,9 @@
               "TourContributors": {
                 "type": "array",
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "Name": {
-                      "type": "string",
-                      "maxLength": 100,
-                      "description": "Name of the tour editor."
-                    },
-                    "Role": {
-                      "type": "string",
-                      "maxLength": 100,
-                      "enum": ["Chief Editor", "Editor", "Tester", "Contributor"],
-                      "description": "Role of the author in quiz creation."
-                    },
-                    "RatingChgkInfoID": {
-                      "type": "string",
-                      "maxLength": 50,
-                      "description": "ID from rating.chgk.info (optional)."
-                    },
-                    "ExtraInfo": {
-                      "type": "string",
-                      "maxLength": 1024,
-                      "description": "Additional information about the editor."
-                    }
-                  },
-                  "required": ["Name"],
-                  "description": "List of people who contributed to the tour."
-                }
+                  "$ref": "#/definitions/Contributor"
+                },
+                "description": "List of people who contributed to the tour."
               }
             },
             "required": ["ID", "NumberOfQuestions", "TourContributors"],
@@ -259,5 +218,35 @@
     }
   },
   "required": ["PortQD_Index", "Owner", "About", "Authors", "Content"],
-  "description": "Schema for the Portable Quiz Description (PortQD) format, defining the structure and content of quizzes."
+  "description": "Schema for the Portable Quiz Description (PortQD) format, defining the structure and content of quizzes.",
+  "definitions": {
+    "Contributor": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Name of the tour editor."
+        },
+        "Role": {
+          "type": "string",
+          "maxLength": 100,
+          "enum": ["Chief Editor", "Editor", "Tester", "Contributor"],
+          "description": "Role of the author in quiz creation."
+        },
+        "RatingChgkInfoID": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "ID from rating.chgk.info (optional)."
+        },
+        "ExtraInfo": {
+          "type": "string",
+          "maxLength": 1024,
+          "description": "Additional information about the editor."
+        }
+      },
+      "required": ["Name"],
+      "description": "List of people who contributed to the tour."
+    }
+  }
 }
