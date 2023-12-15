@@ -231,7 +231,7 @@
         "Role": {
           "type": "string",
           "maxLength": 100,
-          "enum": ["Chief Editor", "Editor", "Tester", "Contributor"],
+          "enum": ["Chief Editor", "Editor", "Tester", "Translator", "Contributor"],
           "description": "Role of the author in quiz creation."
         },
         "RatingChgkInfoID": {
